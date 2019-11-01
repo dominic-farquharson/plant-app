@@ -1,6 +1,7 @@
 require('dotenv').config()
 const bodyParser = require('body-parser')
 const express = require('express')
+const path = require('path')
 const logger = require('./utils/logger')
 const apiRoutes = require('./routes/api')
 
@@ -9,7 +10,13 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+app.use(express.static(path.resolve('./client/build')))
+
 app.use('/api', apiRoutes)
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('./client/build/index.html'))
+})
 
 app.use((err, req, res, next) => {
   const code = res.statusCode === 200 ? 500 : res.statusCode
