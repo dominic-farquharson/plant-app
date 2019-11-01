@@ -54,6 +54,6 @@
     "db:drop": "sequelize-cli db:drop",
     "db:seed": "sequelize-cli db:seed:all",
     "db:setup": "yarn db:create && yarn db:migrate && yarn db:seed",
-    "build": "cd client && yarn build"
+    "build": "cd client && yarn install --production=false && yarn build"
   }
 }
