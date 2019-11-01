@@ -1,0 +1,49 @@
+.comments-list {
+  margin-top: 50px;
+
+  h2.heading {
+    font-size: 1.3rem;
+  }
+
+  ul {
+    padding: 0 20px;
+    list-style-type: none;
+    text-align: left;;
+  }
+
+  .fa-pencil {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  .comment {
+    background: #D4F2B8;
+    min-height: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    p {
+      margin-top: 0;
+    }
+
+    &__buttons {
+      text-align: right;
+    }
+
+    &__date,
+    &__creator {
+      font-size: 1rem;
+    }
+
+    &__date {
+      font-size: 0.875rem;
+    }
+
+    &__creator {
+      font-weight: bold;
+    }
+  }
+}

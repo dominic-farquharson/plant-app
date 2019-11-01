@@ -1,0 +1,28 @@
+@import '../../scss//mixins.scss';
+
+.create-comment {
+  padding: 0 20px;
+  text-align: left;
+  margin-top: 50px;
+  &__login {
+    margin-top: 50px;
+  }
+
+  textarea {
+    // padding: 12px 5px;
+    min-height: 80px;
+    border: 1px black solid;
+    width: 100%;
+    padding: 12px;
+  }
+
+  &__send-container {
+    text-align: right;
+    margin-top: 12px;
+  }
+
+  &__btn {
+    @include button;
+    @include button-hover;
+  }
+}

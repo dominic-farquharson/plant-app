@@ -4,7 +4,8 @@ const checkForToken = async (req, res, next) => {
   try {
     const authorization = req.get('authorization')
     if (!authorization) throw new Error('token is required')
-    const token = authorization.split(' ')[1]
+    const [type, token] = authorization.split(' ')
+    if (type !== 'Bearer') throw new Error('invalid token type')
     const data = await isJWTValid(token)
     res.locals.userId = data.id
     next()

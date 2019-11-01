@@ -1,0 +1,85 @@
+@import '../../scss/breakpoints.scss';
+
+.plant {
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+  flex: 1 0 auto;
+  height: 100%;
+
+  &.view-plant {
+    box-shadow: initial;
+    @media #{$bp-medium} {
+      display: flex;
+      justify-content: space-around;
+
+      .plant__img {
+        max-height: 500px;
+      }
+
+      .view-plant__comments-description {
+        min-width: 30%;
+        max-width: 35%;
+      }
+
+      .plant__buttons {
+        padding-left: 0;
+      }
+
+      .plant__image-title {
+        max-width: 50%;
+        h2 {
+          padding-left: 0;
+        }
+      }
+    }
+
+  }
+
+  &__buttons {
+    text-align: left;
+    .fa {
+      margin-right: 5px;
+    }
+    .red-border {
+      color: red;
+    }
+    .red-background {
+      color: red;
+    }
+
+    .fa-pencil {
+      color: black;
+    }
+  }
+
+  &__description {
+    margin-top: 10px;
+  }
+
+  h2,
+  &__buttons,
+  &__description {
+    text-align: left;
+    padding: 0 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  &__img {
+    width: 100%;
+    height: 300px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @media #{$bp-large} {
+      min-width: 500px;
+    }
+  }
+}

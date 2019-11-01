@@ -31,6 +31,9 @@ authRoutes.post('/register', async (req, res, next) => {
     const token = generateTJWT({
       id: user.id,
     })
+    const usersData = await User.findAll({
+      attributes: ['firstName', 'id'],
+    })
     res.status(200).json({
       token,
       user: {
@@ -39,6 +42,8 @@ authRoutes.post('/register', async (req, res, next) => {
         lastName,
         email,
       },
+      users: usersData || [],
+      success: true,
     })
   } catch (e) {
     if (e.name === 'SequelizeUniqueConstraintError') {
@@ -69,13 +74,15 @@ authRoutes.post('/login', async (req, res, next) => {
       email,
       password,
     } = req.body
-
     const user = await User.findOne({
       where: {
         email,
       }
     })
     if (!user) throw new Error('invalid email')
+    const usersData = await User.findAll({
+      attributes: ['firstName', 'id'],
+    })
 
     const isPasswordValid = await validatePassword(password, user.password)
     if (!isPasswordValid) throw new Error('invalid password')
@@ -98,6 +105,7 @@ authRoutes.post('/login', async (req, res, next) => {
         favoritePlant,
         id: user.id,
       },
+      users: usersData || [],
       success: true,
     })
   } catch (e) {

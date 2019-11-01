@@ -1,11 +1,16 @@
 const commentsRoutes = require('express').Router()
-const { Comment } = require('../db/models/')
+const { Comment, User } = require('../db/models/')
 const { checkForToken } = require('../middleware')
 const { createCommentSchema, updateCommentSchema } = require('../utils/schema')
 
 commentsRoutes.get('/', async (req, res, next) => {
   try {
-    const comments = await Comment.findAll()
+    const comments = await Comment.findAll({
+      include: {
+        model: User,
+        attributes: ['firstName', 'updatedAt'],
+      },
+    })
     res.status(200).json({
       comments,
       success: true,
@@ -17,7 +22,12 @@ commentsRoutes.get('/', async (req, res, next) => {
 
 commentsRoutes.get('/:id', async (req, res, next) => {
   try {
-    const comment = await Comment.findByPk(req.params.id)
+    const comment = await Comment.findByPk(req.params.id, {
+      include: {
+        model: User,
+        attributes: ['firstName', 'updatedAt'],
+      },
+    })
     if (!comment) {
       res.status(404);
       res.locals.error = 'Not found';

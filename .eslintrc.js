@@ -16,6 +16,8 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'no-debugger': 0,
     'no-unused-vars': [
       1,
@@ -83,5 +85,5 @@ module.exports = {
       },
     ],
   },
-  plugins: ['prettier'],
+  plugins: ['prettier', 'react-hooks'],
 };

@@ -1,0 +1,24 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/breakpoints.scss';
+
+.create-plant {
+  margin-top: 50px;
+
+  input {
+    @include form-input;
+  }
+
+  &__heading {
+    font-size: 1.5rem;
+  }
+
+  button {
+    @include button;
+    @include button-hover;
+  }
+
+  @media #{$bp-medium} {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}

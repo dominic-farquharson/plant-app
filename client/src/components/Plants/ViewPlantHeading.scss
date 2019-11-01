@@ -1,0 +1,42 @@
+@import '../../scss//mixins.scss';
+@import '../../scss//breakpoints.scss';
+
+.view-plant-heading {
+  display: flex;
+  @media #{$bp-medium} {
+
+  }
+
+  align-items: top;
+  button {
+    background: none;
+    width: auto;
+    padding: 0;
+    border: none;
+    height: initial;
+  }
+
+  h1 {
+    position: relative;
+    @include page-heading;
+    flex: auto;
+    @media #{$bp-medium} {
+      margin: 0 50px;
+      span {
+        display: none;
+      }
+    }
+  }
+
+  h1,
+  button {
+    margin-bottom: 24px;
+  }
+
+  .back-button {
+    position: absolute;
+    left: 0;
+    top: 12px;
+  }
+
+}

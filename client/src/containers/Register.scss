@@ -1,0 +1,25 @@
+@import '../scss//breakpoints.scss';
+@import '../scss/mixins.scss';
+
+.register {
+  margin-top: 50px;
+
+  input {
+    @include form-input;
+  }
+
+  button {
+    @include button;
+    @include button-hover;
+    margin-top: 10px;
+  }
+
+  p.cta {
+    margin-top: 50px;
+  }
+
+  @media #{$bp-medium} {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}

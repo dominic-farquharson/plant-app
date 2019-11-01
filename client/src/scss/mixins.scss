@@ -1,0 +1,38 @@
+@mixin page-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+@mixin button-reset {
+  background: none;
+  margin: 0;
+  height: initial;
+  border: none;
+}
+
+@mixin button {
+  min-height: 44px;
+  border: 1px black solid;
+  padding: 0 24px;
+  font-weight: bold;
+  font-size: 1rem;
+  background: none;
+  margin: 0;
+}
+
+@mixin button-hover {
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
+
+@mixin form-input {
+  width: 100%;
+  margin-bottom: 12px;
+  min-height: 35px;
+  padding: 12px 5px;
+  font-size: 1.25rem;
+  border: 1px black solid;
+}

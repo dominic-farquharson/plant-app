@@ -1,0 +1,27 @@
+@import './scss/breakpoints.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.fa:hover {
+  cursor: pointer;
+}
+
+.App {
+  text-align: center;
+}
+
+.container {
+  padding: 0 24px;
+
+  @media #{$bp-medium} {
+    padding: 0 50px;
+  }
+}
+
+.error-msg {
+  font-size: 1rem;
+  color: red;
+  text-align: left;
+}
