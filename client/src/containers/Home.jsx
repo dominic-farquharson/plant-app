@@ -16,11 +16,9 @@ const HomeContainer = ({
     dispatch(fetchPlants())
   }, [])
 
-  console.log({ plants })
-
   if (!isFetchComplete) return <Loading />
   if (error) return <p>{error}</p>
-  if (!plants.length) return 'there are no plants'
+  if (!plants || !plants.length) return 'there are no plants'
 
   return (
     <PlantsList
