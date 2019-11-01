@@ -2,6 +2,8 @@
 
 This is a node & express backend that serves a react frontend.
 
+[link](https://big-plant-app.herokuapp.com)
+
 ## Setup
 
 1. [Install Postgres](https://www.postgresql.org/download/).
